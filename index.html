@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>server.properties generator</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <!-- Darkly theme from https://bootswatch.com/ -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/darkly/bootstrap.min.css" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="style.css">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atom-one-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+		<script src="scroll.min.js"></script>
+    </head>
+    
+    <body>
+	
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Minecraft-server-properties-generator</a>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarColor01" style="">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" target="_blank" href="information.html">Information</a>
+      </li>
+    </ul>
+	</div>
+	</nav> 
+	
+	
+	<div class="vl"></div>
+	
+	<div id="top"></div>
+	
+	<a href="#top" class="scroll" onclick="topFunction()" id="myBtn" title="Go to top">&uarr;</a>
+	<br>
+	<br>
+	<br>
+<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Toggle advanced</div>
+  <div class="card-body">
+<btnToggle id="toggle-advanced"></btnToggle>
+</div>
+</div>
+<hr>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm">
+                <div>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Server IP</div>
+  <div class="card-body">
+                    
+                    <input type="text" id="server-ip" class="property-button form-control"></input>
+                </div>
+                </div>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Server port</div>
+  <div class="card-body">
+  
+                    
+                    <input type="number" id="server-port" ivalue=25565 class="property-button form-control"></input>
+                </div>
+                </div>
+				
+				<hr>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">World name</div>
+  <div class="card-body">
+                    
+                    <input type="text" id="level-name" value="world" class="property-button form-control"></input>
+                </div>
+                </div>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">World seed</div>
+  <div class="card-body">
+                    
+                    <input type="text" id="level-seed" class="property-button form-control"></input>
+                </div>
+                </div>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">World type</div>
+  <div class="card-body">
+                    
+                    <btnChoice id="level-type" class="property-buttonform-control">
+                        <choice value="DEFAULT" default>Default</choice>
+                        <choice value="FLAT">Superflat</choice>
+                        <choice value="LARGEBIOMES">Large biomes</choice>
+                        <choice value="AMPLIFIED">Amplified</choice>
+                        <choice value="BUFFET">Buffet</choice>
+                    </btnChoice>
+                </div>
+                </div>
+				
+				<hr>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Generator settings</div>
+  <div class="card-body">
+                    
+                    <input type="text" id="generator-settings" class="property-button form-control"></input>
+                </div>
+                </div>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Generate structures</div>
+  <div class="card-body">
+                    
+                    <btnToggle on id="generate-structures" class="property-button"></btnToggle>
+                </div>
+                </div>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Difficulty</div>
+  <div class="card-body">
+                    
+                    <btnChoice id="difficulty" class="property-button">
+                        <choice value=0>Peaceful</choice>
+                        <choice value=1 default>Easy</choice>
+                        <choice value=2>Normal</choice>
+                        <choice value=3>Hard</choice>
+                    </btnChoice>
+                </div>
+                </div>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Hardcore</div>
+  <div class="card-body">
+                    
+                    <btnToggle id="hardcore" class="property-button"></btnToggle>
+                </div>
+                </div>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Gamemode</div>
+  <div class="card-body">
+                    
+                    <btnChoice id="gamemode" class="property-button">
+                        <choice value=0 default>Survival</choice>
+                        <choice value=1>Creative</choice>
+                        <choice value=2>Adventure</choice>
+                        <choice value=3>Spectator</choice>
+                    </btnChoice>
+                </div>
+				</div>
+                <div class="advanced">
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Force gamemode</div>
+  <div class="card-body">
+                    
+                    <btnToggle id="force-gamemode" class="property-button l"></btnToggle>
+                </div>
+				</div>
+                </div>
+				
+				<hr>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Online Mode</div>
+  <div class="card-body">
+                    
+                    <btnToggle on id="online-mode" class="property-button "></btnToggle>
+                </div>
+                </div>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Max players</div>
+  <div class="card-body">
+                    
+                    <input type="number" id="max-players" ivalue=20 class="property-button form-control"></input>
+                </div>
+                </div>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Spawn protection</div>
+  <div class="card-body">
+                 
+                    <input type="number" id="spawn-protection" ivalue=16 class="property-button form-control"></input>
+                </div>
+                </div>
+				<hr>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Server list message</div>
+  <div class="card-body">
+                    
+                    <input type="text" id="motd" value="A Minecraft Server" class="property-button form-control"></input>
+                </div>
+                </div>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">PVP</div>
+  <div class="card-body">
+                    <btnToggle on id="pvp" class="property-button"></btnToggle>
+                </div>
+                </div>
+								<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Allow nether</div>
+  <div class="card-body">
+                    <btnToggle on id="allow-nether" class="property-button "></btnToggle>
+                </div>
+                </div>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Allow flight</div>
+  <div class="card-body">
+
+                    <btnToggle id="allow-flight" class="property-button"></btnToggle>
+                </div>
+                </div>
+				<hr>
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Resource pack link</div>
+  <div class="card-body">
+
+					<input type="text" id="resource-pack" class="property-button form-control"></input>
+                </div>
+				</div>
+                <div class="advanced">
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Resource pack sha1 hash</div>
+  <div class="card-body">
+            
+                    <input type="text" id="resource-pack-sha1" class="property-button form-control"></input>
+					</div>
+					</div>
+                </div>
+                <div class="advanced">
+				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Enable query</div>
+  <div class="card-body">
+        
+                    <btnToggle id="enable-query" class="property-button"></btnToggle>
+					</div>
+					</div>
+                </div>
+                <div class="advanced">
+								<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Enable remote connection</div>
+  <div class="card-body">
+        
+                    <btnToggle id="enable-rcon" class="property-button"></btnToggle>
+                </div>
+				</div></div>
+                				<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Enable command blocks</div>
+  <div class="card-body">
+          
+                    <btnToggle id="enable-command-block" class="property-button"></btnToggle>
+                </div>
+                </div>
+								<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Op permission level</div>
+  <div class="card-body">
+        
+                    <btnChoice id="op-permission-level" class="property-button">
+                        <choice value=1>Bypass spawn protection</choice>
+                        <choice value=2>Medium</choice>
+                        <choice value=3>Admin</choice>
+                        <choice value=4 default>All commands</choice>
+                    </btnChoice>
+                </div>
+                </div>
+				<hr>
+								<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Spawn animals</div>
+  <div class="card-body">
+              
+                    <btnToggle on id="spawn-animals" class="property-button"></btnToggle>
+                </div>
+                </div>
+								<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Spawn monsters</div>
+  <div class="card-body">
+            
+                    <btnToggle on id="spawn-monsters" class="property-button"></btnToggle>
+                </div>
+                </div>
+								<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Spawn villagers</div>
+  <div class="card-body">
+             
+                    <btnToggle on id="spawn-npcs" class="property-button"></btnToggle>
+                </div>
+                </div>
+								<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">View distance</div>
+  <div class="card-body">
+         
+                    <input type="number" id="view-distance" ivalue=10 class="property-button form-control"></input>
+                </div>
+                </div>
+				<hr>
+								<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Whitelist</div>
+  <div class="card-body">
+       
+                    <btnToggle id="whitelist" class="property-button"></btnToggle>
+                </div>
+				</div>
+                <div class="advanced">
+								<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Enforce whitelist</div>
+  <div class="card-body">
+            
+                    <btnToggle id="enforce-whitelist" class="property-button"></btnToggle>
+					</div></div>
+                </div>
+                <div class="advanced">
+								<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Max build height</div>
+  <div class="card-body">
+           
+                    <input type="number" id="max-build-height" ivalue=256 class="property-button form-control"></input>
+					</div>
+					</div>
+                </div>
+                <div class="advanced">
+								<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Max tick time</div>
+  <div class="card-body">
+            
+                    <input type="number" id="max-tick-time" ivalue=60000 class="property-button form-control"></input>
+					</div>
+					</div>
+                </div>
+                <div class="advanced">
+								<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Max world size</div>
+  <div class="card-body">
+   
+                    <input type="number" id="max-world-size" ivalue=29999984 class="property-button form-control"></input>
+                </div>
+				</div>
+				</div>
+                <div class="advanced">
+								<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Network compression threshold</div>
+  <div class="card-body">
+          
+                    <input type="number" id="network-compression-threshold" ivalue=256 class="property-button form-control"></input>
+                
+				</div></div></div>
+                <div class="advanced">
+								<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Player idle timeout</div>
+  <div class="card-body">
+                   
+                    <input type="number" id="player-idle-timeout" ivalue=0 class="property-button form-control"></input>
+                </div></div>
+				</div>
+                <div class="advanced">
+								<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Prevent proxy connections</div>
+  <div class="card-body">
+              
+                    <btnToggle id="prevent-proxy-connections" class="property-button"></btnToggle>
+					</div></div>
+                </div>
+                <div class="advanced">
+								<div class="card border-secondary mb-3" style="max-width: 20rem;">
+				  <div class="card-header">Snooper enabled</div>
+  <div class="card-body">
+                    
+                    <btnToggle on id="snooper-enabled" class="property-button"></btnToggle>
+					</div>
+                </div>
+            </div>
+			<hr>
+            <div class="col-sm server-property-textbox">
+                <div id="server-properties-parent">
+                    <div id="main">
+                        <thing>
+                            <pre><code class="properties" id="server-properties">Loading...</code></pre>
+                        </thing>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+
+<button id="downloadLink" class="btn btn-success" onclick="copy_data(main)">copy data</button>
+    </div> 
+    
+	
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    
+    <script src="main.js"></script>
+</body>
+</html>

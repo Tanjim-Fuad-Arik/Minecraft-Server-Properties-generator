@@ -1,0 +1,589 @@
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/darkly/bootstrap.min.css" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="style.css">
+		
+		 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+			<script src="scroll.min.js"></script>
+			<script src="main.js"></script>
+
+<div id="top"></div>
+
+<a href="#top" class="scroll" onclick="topFunction()" id="myBtn" title="Go to top">&uarr;</a>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" target="_blank" href="index.html">Minecraft-server-properties-generator</a>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarColor01" style="">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" target="_blank" href="index.html">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Information  <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+	</div>
+	</nav> 
+	<br>
+	<br>
+	<br>
+	
+	<code id="nb"><big>NB: </big> This data is based on <a href="https://minecraft.gamepedia.com/Minecraft_Wiki">The Minecraft Wiki</a></code>
+	
+<h2><span class="mw-headline" id="Minecraft_server_properties"><i>Minecraft</i> server properties</span></h2>
+<h3><span class="mw-headline" id="Java_Edition_3">Java Edition</span></h3>
+<table class="table table-hover" data-description="Server properties">
+
+<tbody><tr class="table-primary">
+<th><span style="white-space:nowrap;">Key</span>
+</th>
+<th>Type
+</th>
+<th>Default Value
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>allow-flight</b></span>
+</td>
+<td>boolean
+</td>
+<td>false
+</td>
+<td><span id="allow-flight"></span> Allows users to use flight on the server while in Survival mode, if they have a <a href="https://minecraft.gamepedia.com/Mod" class="mw-redirect" title="Mod">mod</a> that provides flight installed.
+<p>With allow-flight enabled, <a href="https://minecraft.gamepedia.com/Griefers" class="mw-redirect" title="Griefers">griefers</a> may become more common, because it makes their work easier. In Creative mode, this has no effect.
+</p>
+<dl><dd><b>false</b> - Flight is not allowed (players in air for at least 5 seconds get kicked).</dd>
+<dd><b>true</b> - Flight is allowed, and used if the player has a fly mod installed.</dd></dl>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>allow-nether</b></span>
+</td>
+<td>boolean
+</td>
+<td>true
+</td>
+<td><span id="allow-nether"></span> Allows players to travel to the <a href="https://minecraft.gamepedia.com/Nether" class="mw-redirect" title="Nether">Nether</a>.
+<dl><dd><b>false</b> - <a href="https://minecraft.gamepedia.com/Nether" class="mw-redirect" title="Nether">Nether</a> portals do not work.</dd>
+<dd><b>true</b> - The server allows <a href="https://minecraft.gamepedia.com/Portal" title="Portal">portals</a> to send players to the Nether.</dd></dl>
+</td></tr>
+<tr>
+<td><b>broadcast-console-to-ops</b>
+</td>
+<td>boolean
+</td>
+<td>true
+</td>
+<td><span id="allow-nether"></span>Send console command outputs to all <a href="https://minecraft.gamepedia.com/Server#Managing_and_maintaining_a_server" title="Server">online operators</a>.
+</td></tr>
+<tr>
+<td><b>broadcast-rcon-to-ops</b>
+</td>
+<td>boolean
+</td>
+<td>true
+</td>
+<td><span id="allow-nether"></span>Send rcon console command outputs to all online operators.
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>difficulty</b></span>
+</td>
+<td>string
+</td>
+<td>easy
+</td>
+<td><span id="difficulty"></span> Defines the <a href="/Difficulty" title="Difficulty">difficulty</a> (such as damage dealt by mobs and the way hunger and poison affects players) of the server.
+<p>If a legacy difficulty number is specified, it is silently converted to a difficulty name.
+</p>
+<dl><dd><b>peaceful</b> (0)</dd>
+<dd><b>easy</b> (1)</dd>
+<dd><b>normal</b> (2)</dd>
+<dd><b>hard</b> (3)</dd></dl>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>enable-command-block</b></span>
+</td>
+<td>boolean
+</td>
+<td>false
+</td>
+<td><span id="enable-command-block"></span> Enables command blocks
+</td></tr>
+<tr>
+<td><b>enable-jmx-monitoring</b>
+</td>
+<td>boolean
+</td>
+<td>false
+</td>
+<td><span id="enable-command-block"></span> Exposes an MBean with the Object name <code>net.minecraft.server:type=Server</code> and two attributes <code>averageTickTime</code> and <code>tickTimes</code> exposing the tick times in milliseconds.
+<p>In order for enabling JMX on the Java runtime you also need to add a couple of JVM flags to the startup as documented <a target="_self" rel="nofollow" class="external text" href="https://docs.oracle.com/javase/8/docs/technotes/guides/management/agent.html">here</a>.
+</p>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>enable-rcon</b></span>
+</td>
+<td>boolean
+</td>
+<td>false
+</td>
+<td><span id="enable-rcon"></span> Enables remote access to the server console.
+</td></tr>
+<tr>
+<td><b>sync-chunk-writes</b>
+</td>
+<td>boolean
+</td>
+<td>true
+</td>
+<td><span id="enable-query"></span> Enables synchronous chunk writes.
+</td></tr>
+<tr>
+<td><b>enable-status</b>
+</td>
+<td>boolean
+</td>
+<td>true
+</td>
+<td><span id="enable-query"></span>Makes the server appear as "online" on the server list.
+<p>If set to false, it will suppress replies from clients. This means it will appear as offline, but will still accept connections.
+</p>
+</td></tr>
+<tr>
+<td><b>enable-query</b>
+</td>
+<td>boolean
+</td>
+<td>false
+</td>
+<td><span id="enable-query"></span> Enables GameSpy4 protocol server listener. Used to get information about server.
+</td></tr>
+<tr>
+<td><b>entity-broadcast-range-percentage</b>
+</td>
+<td>integer (0-500)
+</td>
+<td>100
+</td>
+<td><span id="enable-query"></span>Controls how close entities need to be before being sent to clients. Higher values means they'll be rendered from farther away, potentially causing more lag. This is expressed the percentage of the default value. For example, setting to 50 will make it half as usual. This mimics the function on the client video settings (not unlike Render Distance, which the client can customize so long as it's under the server's setting).
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>force-gamemode</b></span>
+</td>
+<td>boolean
+</td>
+<td>false
+</td>
+<td><span id="force-gamemode"></span> Force players to join in the default <a href="https://minecraft.gamepedia.com/Game_mode" class="mw-redirect" title="Game mode">game mode</a>.
+<dl><dd><b>false</b> - Players join in the gamemode they left in.</dd>
+<dd><b>true</b> - Players always join in the default gamemode.</dd></dl>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>function-permission-level</b></span>
+</td>
+<td>integer (1-4)
+</td>
+<td>2
+</td>
+<td><span id="function-permission-level"></span> Sets the default permission level for <a href="https://minecraft.gamepedia.com/Function_(Java_Edition)" title="Function (Java Edition)">functions</a>.
+<p>See <a href="#op-permission-level">#op-permission-level</a> for the details on the 4 levels.
+</p>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>gamemode</b></span>
+</td>
+<td>string
+</td>
+<td>survival
+</td>
+<td><span id="gamemode"></span> Defines the <a href="/Game_mode" class="mw-redirect" title="Game mode">mode of gameplay</a>.
+<p>If a legacy gamemode number is specified, it is silently converted to a gamemode name.
+</p>
+<dl><dd><b><a href="https://minecraft.gamepedia.com/Survival" title="Survival">survival</a></b> (0)</dd>
+<dd><b><a href="https://minecraft.gamepedia.com/Creative" title="Creative">creative</a></b> (1)</dd>
+<dd><b><a href="https://minecraft.gamepedia.com/Adventure" title="Adventure">adventure</a></b> (2)</dd>
+<dd><b><a href="https://minecraft.gamepedia.com/Spectator" title="Spectator">spectator</a></b> (3)</dd></dl>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>generate-structures</b></span>
+</td>
+<td>boolean
+</td>
+<td>true
+</td>
+<td><span id="generate-structures"></span> Defines whether <a href="https://minecraft.gamepedia.com/Structures" class="mw-redirect" title="Structures">structures</a> (such as villages) can be generated.
+<dl><dd><b>false</b> - Structures are not generated in new chunks.</dd>
+<dd><b>true</b> - Structures are generated in new chunks.</dd></dl>
+<p><b>Note:</b> <i>Dungeons still generate if this is set to false.</i>
+</p>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>generator-settings</b></span>
+</td>
+<td>string
+</td>
+<td><i>blank</i>
+</td>
+<td><span id="generator-settings"></span> The settings used to customize world generation. Follow <a href="https://minecraft.gamepedia.com/Java_Edition_level_format#generatorOptions_tag_format" title="Java Edition level format">its format</a> and write the corresponding JSON string. Remember to escape all <code>:</code> with <code>\:</code>.
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>hardcore</b></span>
+</td>
+<td>boolean
+</td>
+<td>false
+</td>
+<td><span id="hardcore"></span> If set to <b>true</b>, server difficulty is ignored and set to hard and players are set to spectator mode if they die.
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>level-name</b></span>
+</td>
+<td>string
+</td>
+<td>world
+</td>
+<td><span id="level-name"></span> The "level-name" value is used as the world name and its folder name. The player may also copy their saved game folder here, and change the name to the same as that folder's to load it instead.
+<dl><dd>Characters such as ' (apostrophe) may need to be escaped by adding a backslash before them.</dd></dl>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>level-seed</b></span>
+</td>
+<td>string
+</td>
+<td><i>blank</i>
+</td>
+<td><span id="level-seed"></span> Add a <a href="https://minecraft.gamepedia.com/Seed_(level_generation)" title="Seed (level generation)">seed</a> for the player's world, as in Singleplayer.
+<dl><dd>Some examples are: minecraft, 404, 1a2b3c.</dd></dl>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>level-type</b></span>
+</td>
+<td>string
+</td>
+<td>default
+</td>
+<td><span id="level-type"></span> Determines the type of map that is generated.
+<dl><dd><b>default</b> - Standard world with hills, valleys, water, etc.</dd>
+<dd><b><a href="https://minecraft.gamepedia.com/Superflat" title="Superflat">flat</a></b> - A flat world with no features, can be modified with <b>generator-settings</b>.</dd>
+<dd><b><a href="https://minecraft.gamepedia.com/Large_Biomes" title="Large Biomes">largeBiomes</a></b> - Same as default but all biomes are larger.</dd>
+<dd><b><a href="https://minecraft.gamepedia.com/Amplified" title="Amplified">amplified</a></b> - Same as default but world-generation height limit is increased.</dd>
+<dd><b><a href="https://minecraft.gamepedia.com/Buffet" title="Buffet">buffet</a></b> - Same as default unless <b>generator-settings</b> is set.</dd></dl>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>max-build-height</b></span>
+</td>
+<td>integer
+</td>
+<td>256
+</td>
+<td><span id="max-build-height"></span> The maximum height allowed for building. Terrain may still naturally generate above a low height limit. 256 is the maximum possible, it also has to be a multiple of 8.
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>max-players</b></span>
+</td>
+<td>integer (0-(2^31 - 1))
+</td>
+<td>20
+</td>
+<td><span id="max-players"></span> The maximum number of players that can play on the server at the same time. Note that more players on the server consume more resources. Note also, op player connections are not supposed to count against the max players, but ops currently cannot join a full server. However, this can be changed by going to the file called ops.json in the player's server directory, opening it, finding the op that the player wants to change, and changing the setting called bypassesPlayerLimit to true (the default is false). This means that that op does not have to wait for a player to leave in order to join. Extremely large values for this field result in the client-side user list being broken.
+</td></tr>
+<tr>
+<td><span style="white-space: nowrap;"><b>max-tick-time</b></span><br />
+</td>
+<td>integer (0–(2^63 - 1))
+</td>
+<td>60000
+</td>
+<td><span id="max-tick-time"></span> The maximum number of milliseconds a single tick may take before the server watchdog stops the server with the message, <i>A single server tick took 60.00 seconds (should be max 0.05); Considering it to be crashed, server will forcibly shutdown.</i> Once this criterion is met, it calls System.exit(1).
+<dl><dd><b>-1</b> - disable watchdog entirely (this disable option was added in 14w32a)</dd></dl>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>max-world-size</b></span><br />
+</td>
+<td>integer (1-29999984)
+</td>
+<td>29999984
+</td>
+<td><span id="max-world-size"></span> This sets the maximum possible size in blocks, expressed as a radius, that the <a href="https://minecraft.gamepedia.com/World_border" title="World border">world border</a> can obtain. Setting the world border bigger causes the commands to complete successfully but the actual border does not move past this block limit. Setting the max-world-size higher than the default doesn't appear to do anything.
+<p>Examples: 
+</p>
+<ul><li>Setting max-world-size to 1000 allows the player to have a 2000×2000 world border.</li>
+<li>Setting max-world-size to 4000 gives the player an 8000×8000 world border.</li></ul>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>motd</b></span>
+</td>
+<td>string
+</td>
+<td><i>A Minecraft Server</i>
+</td>
+<td><span id="motd"></span> This is the message that is displayed in the server list of the client, below the name.
+<ul><li>The MOTD supports <a href="https://minecraft.gamepedia.com/Formatting_codes#Use_in_server.properties_and_pack.mcmeta" title="Formatting codes">color and formatting codes</a>.</li>
+<li>The MOTD supports special characters, such as "♥". However, such characters must be converted to escaped Unicode form. An online converter can be found <a target="_self" rel="nofollow" class="external text" href="http://www.freeformatter.com/string-utilities.html#charinfo">here</a>.</li>
+<li>If the MOTD is over 59 characters, the server list may report a communication error.</li></ul>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>network-compression-threshold</b></span><br />
+</td>
+<td>integer
+</td>
+<td>256
+</td>
+<td><span id="network-compression-threshold"></span> By default it allows packets that are <i>n-1</i> bytes big to go normally, but a packet of <i>n</i> bytes or more gets compressed down. So, a lower number means more compression but compressing small amounts of bytes might actually end up with a larger result than what went in.
+<dl><dd><b>-1</b> - disable compression entirely</dd>
+<dd><b>0</b> - compress everything</dd></dl>
+<p><b>Note:</b> <i>The Ethernet spec requires that packets less than 64 bytes become padded to 64 bytes. Thus, setting a value lower than 64 may not be beneficial. It is also not recommended to exceed the MTU, typically 1500 bytes.</i>
+</p>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>online-mode</b></span>
+</td>
+<td>boolean
+</td>
+<td>true
+</td>
+<td><span id="online-mode"></span> Server checks connecting players against <i>Minecraft</i> account database. Set this to false only if the player's server is <b>not</b> connected to the Internet. Hackers with fake accounts can connect if this is set to false! If minecraft.net is down or inaccessible, no players can connect if this is set to true. Setting this variable to off purposely is called "cracking" a server, and servers that are present with online mode off are called "cracked" servers, allowing players with unlicensed copies of <i><a href="https://minecraft.gamepedia.com/Minecraft" title="Minecraft">Minecraft</a></i> to join.
+<dl><dd><b>true</b> - Enabled. The server assumes it has an Internet connection and checks every connecting player.</dd>
+<dd><b>false</b> - Disabled. The server does not attempt to check connecting players.</dd></dl>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>op-permission-level</b></span>
+</td>
+<td>integer (1-4)
+</td>
+<td>4
+</td>
+<td><span id="op-permission-level"></span> Sets the default permission level for ops when using <code style="word-break: break-word;">/<a href=https://minecraft.gamepedia.com/Commands/op" title="Commands/op">op</a></code>. All levels inherit abilities and commands from levels before them.
+<dl><dd><b>1</b> - Ops can bypass spawn protection.</dd>
+<dd><b>2</b> - Ops can use all singleplayer cheats commands (except <code style="word-break: break-word;">/<a href="https://minecraft.gamepedia.com/Commands/publish" title="Commands/publish">publish</a></code>, as it is not on servers; along with <code style="word-break: break-word;">/<a href="https://minecraft.gamepedia.com/Commands/debug" title="Commands/debug">debug</a></code>) and use command blocks. Command blocks, along with Realms owners/operators, have the same permissions as this level.</dd>
+<dd><b>3</b> - Ops can use most multiplayer-exclusive commands, including <code style="word-break: break-word;">/<a href="https://minecraft.gamepedia.com/Commands/debug" title="Commands/debug">debug</a></code>, and commands that manage players (<code style="word-break: break-word;">/<a href="https://minecraft.gamepedia.com/Commands/ban" title="Commands/ban">ban</a></code>, <code style="word-break: break-word;">/<a href="https://minecraft.gamepedia.com/Commands/op" title="Commands/op">op</a></code>, etc).</dd>
+<dd><b>4</b> - Ops can use all commands including <code style="word-break: break-word;">/<a href="https://minecraft.gamepedia.com/Commands/stop" title="Commands/stop">stop</a></code>, <code style="word-break: break-word;">/<a href="https://minecraft.gamepedia.com/Commands/save-all" class="mw-redirect" title="Commands/save-all">save-all</a></code>, <code style="word-break: break-word;">/<a href="https://minecraft.gamepedia.com/Commands/save-on" class="mw-redirect" title="Commands/save-on">save-on</a></code>, and <code style="word-break: break-word;">/<a href="https://minecraft.gamepedia.com/Commands/save-off" class="mw-redirect" title="Commands/save-off">save-off</a></code>.</dd></dl>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>player-idle-timeout</b></span>
+</td>
+<td>integer
+</td>
+<td>0
+</td>
+<td><span id="player-idle-timeout"></span> If non-zero, players are kicked from the server if they are idle for more than that many minutes.
+<dl><dd><b>Note:</b> <i>Idle time is reset when the server receives one of the following packets:</i>
+<ul><li><a target="_self" rel="nofollow" class="external text" href="http://wiki.vg/Protocol#Click_Window">Click Window</a></li>
+<li><a target="_self" rel="nofollow" class="external text" href="http://wiki.vg/Protocol#Enchant_Item">Enchant Item</a></li>
+<li><a target="_self" rel="nofollow" class="external text" href="http://wiki.vg/Protocol#Update_Sign">Update Sign</a></li>
+<li><a target="_self" rel="nofollow" class="external text" href="http://wiki.vg/Protocol#Player_Digging">Player Digging</a></li>
+<li><a target="_self" rel="nofollow" class="external text" href="http://wiki.vg/Protocol#Player_Block_Placement">Player Block Placement</a></li>
+<li><a target="_self" rel="nofollow" class="external text" href="http://wiki.vg/Protocol#Held_Item_Change_.28serverbound.29">Held Item Change</a></li>
+<li><a target="_self" rel="nofollow" class="external text" href="http://wiki.vg/Protocol#Animation_.28serverbound.29">Animation</a> (swing arm)</li>
+<li><a target="_self" rel="nofollow" class="external text" href="http://wiki.vg/Protocol#Entity_Action">Entity Action</a></li>
+<li><a target="_self" rel="nofollow" class="external text" href="http://wiki.vg/Protocol#Client_Status">Client Status</a></li>
+<li><a target="_self" rel="nofollow" class="external text" href="http://wiki.vg/Protocol#Chat_Message_.28serverbound.29">Chat Message</a></li>
+<li><a target="_self" rel="nofollow" class="external text" href="http://wiki.vg/Protocol#Use_Entity">Use Entity</a></li></ul></dd></dl>
+</td></tr>
+<tr>
+<td><b>prevent-proxy-connections</b>
+</td>
+<td>boolean
+</td>
+<td>false
+</td>
+<td>If the ISP/AS sent from the server is different from the one from Mojang's authentication server, the player is kicked
+<dl><dd><b>true</b> - Enabled. Server prevents users from using vpns or proxies.</dd>
+<dd><b>false</b> - Disabled. The server doesn't prevent users from using vpns or proxies.</dd></dl>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>pvp</b></span>
+</td>
+<td>boolean
+</td>
+<td>true
+</td>
+<td><span id="pvp"></span> Enable PvP on the server. Players shooting themselves with arrows receive damage only if PvP is enabled.
+<dl><dd><b>true</b> - Players can kill each other.</dd>
+<dd><b>false</b> - Players cannot kill other players (also known as <b>Player versus Environment</b> (<b>PvE</b>)).</dd></dl>
+<p><b>Note:</b> <i>Indirect damage sources spawned by players (such as <a href="https://minecraft.gamepedia.com/Lava" title="Lava">lava</a>, <a href="https://minecraft.gamepedia.com/Fire" title="Fire">fire</a>, <a href="https://minecraft.gamepedia.com/TNT" title="TNT">TNT</a> and to some extent <a href="https://minecraft.gamepedia.com/Water" title="Water">water</a>, <a href="https://minecraft.gamepedia.com/Sand" title="Sand">sand</a> and <a href="https://minecraft.gamepedia.com/Gravel" title="Gravel">gravel</a>) still deal damage to other players.</i>
+</p>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>query.port</b></span>
+</td>
+<td>integer (1-(2^16 - 2))
+</td>
+<td>25565
+</td>
+<td><span id="query.port"></span> Sets the port for the query server (see <b>enable-query</b>).
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>rcon.password</b></span>
+</td>
+<td>string
+</td>
+<td><i>blank</i>
+</td>
+<td><span id="rcon.password"></span> Sets the password for RCON: a remote console protocol that can allow other applications to connect and interact with a <i>Minecraft</i> server over the internet.
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>rcon.port</b></span>
+</td>
+<td>integer (1-(2^16 - 2))
+</td>
+<td>25575
+</td>
+<td><span id="rcon.port"></span> Sets the RCON network port.
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>resource-pack</b></span>
+</td>
+<td>string
+</td>
+<td><i>blank</i>
+</td>
+<td><span id="resource-pack"></span> Optional URI to a <a href="https://minecraft.gamepedia.com/Resource_pack" class="mw-redirect" title="Resource pack">resource pack</a>. The player may choose to use it.
+<p>Note that (in some versions before 1.15.2), the ":" and "=" characters need to be escaped with a backslash (\), e.g. http\://somedomain.com/somepack.zip?someparam\=somevalue
+</p><p>The resource pack may not have a larger file size than 50 MiB (≈ 50.4 MB). Note that download success or failure is logged by the client, and not by the server.
+</p>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>resource-pack-sha1</b></span><br />
+</td>
+<td>string
+</td>
+<td><i>blank</i>
+</td>
+<td><span id="resource-pack-hash"></span> Optional SHA-1 digest of the resource pack, in lowercase hexadecimal. It is recommended to specify this, because it is used to verify the integrity of the resource pack.
+<p><b>Note:</b> If the resource pack is any different, a yellow message "Invalid sha1 for resource-pack-sha1" appears in the console when the server starts. Due to the nature of hash functions, errors have a tiny probability of occurring, so this consequence has no effect.
+</p>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>server-ip</b></span>
+</td>
+<td>string
+</td>
+<td><i>blank</i>
+</td>
+<td><span id="server-ip"></span> The player should set this if they want the server to bind to a particular IP. It is strongly recommended that the player leaves server-ip blank.
+<dl><dd>Set to blank, or the IP the player want their server to run (listen) on.</dd></dl>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>server-port</b></span>
+</td>
+<td>integer (1-(2^16 - 2))
+</td>
+<td>25565
+</td>
+<td><span id="server-port"></span> Changes the port the server is hosting (listening) on. This port must be <a href="https://en.wikipedia.org/wiki/Port_forwarding" class="extiw" title="wikipedia:Port forwarding">forwarded</a> if the server is hosted in a network using <a href="https://en.wikipedia.org/wiki/Network_address_translation" class="extiw" title="wikipedia:Network address translation">NAT</a> (if the player has a home router/firewall).
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>snooper-enabled</b></span>
+</td>
+<td>boolean
+</td>
+<td>true
+</td>
+<td><span id="snooper-enabled"></span> Sets whether the server sends snoop data regularly to <a target="_self" rel="nofollow" class="external free" href="http://snoop.minecraft.net">http://snoop.minecraft.net</a>.
+<dl><dd><b>false</b> - disable snooping.</dd>
+<dd><b>true</b> - enable snooping.</dd></dl>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>spawn-animals</b></span>
+</td>
+<td>boolean
+</td>
+<td>true
+</td>
+<td><span id="spawn-animals"></span> Determines if <a href="https://minecraft.gamepedia.com/Animal" class="mw-redirect" title="Animal">animals</a> can spawn.
+<dl><dd><b>true</b> - Animals spawn as normal.</dd>
+<dd><b>false</b> - Animals immediately vanish.</dd></dl>
+<p><i>If the player has major lag, it is recommended to turn this off/set to false.</i>
+</p>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>spawn-monsters</b></span>
+</td>
+<td>boolean
+</td>
+<td>true
+</td>
+<td><span id="spawn-monsters"></span> Determines if monsters can spawn.
+<dl><dd><b>true</b> - Enabled. Monsters appear at night and in the dark.</dd>
+<dd><b>false</b> - Disabled. No monsters.</dd></dl>
+<p>This setting has no effect if difficulty = 0 (peaceful). If difficulty is not = 0, a monster can still spawn from a <a href="https://minecraft.gamepedia.com/Spawner" title="Spawner">spawner</a>.
+</p><p><i>If the player has major lag, it is recommended to turn this off/set to false.</i>
+</p>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>spawn-npcs</b></span>
+</td>
+<td>boolean
+</td>
+<td>true
+</td>
+<td><span id="spawn-npcs"></span> Determines whether villagers can spawn.
+<dl><dd><b>true</b> - Enabled. Villagers spawn.</dd>
+<dd><b>false</b> - Disabled. No villagers.</dd></dl>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>spawn-protection</b></span>
+</td>
+<td>integer
+</td>
+<td>16
+</td>
+<td><span id="spawn-protection"></span> Determines the side length of the square <a href="https://minecraft.gamepedia.com/index.php?title=Spawn_protection&amp;action=edit&amp;redlink=1" class="new" title="Spawn protection (page does not exist)">spawn protection</a> area as 2<i>x</i>+1. Setting this to 0 does not disable spawn protection, but protects the single block at the spawn point. A value of 1 protects a 3×3 square centered on the spawn point. 2 protects 5×5, 3 protects 7×7, etc. This option is not generated on the first server start and appears when the first player joins. If there are no <a href="https://minecraft.gamepedia.com/Server#Managing_and_maintaining_a_server" title="Server">ops</a> set on the server, the spawn protection is disabled automatically.
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>use-native-transport</b></span>
+</td>
+<td>boolean
+</td>
+<td>true
+</td>
+<td><span id="use-native-transport"></span> Linux server performance improvements: optimized packet sending/receiving on Linux
+<dl><dd><b>true</b> - Enabled. Enable Linux packet sending/receiving optimization</dd>
+<dd><b>false</b> - Disabled. Disable Linux packet sending/receiving optimization</dd></dl>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>view-distance</b></span>
+</td>
+<td>integer (3-32)
+</td>
+<td>10
+</td>
+<td><span id="view-distance"></span> Sets the amount of world data the server sends the client, measured in chunks in each direction of the player (radius, not diameter). It determines the server-side viewing distance.
+<p><i>10 is the default/recommended. If the player has major lag, this value is recommended to be reduced.</i>
+</p><p><i><b>Note:</b></i> <i>A value less than 9 has a big impact on <a href="https://minecraft.gamepedia.com/Spawn#Java_Edition" title="Spawn">mob spawning</a> on the server, as noted in bug <span class="bug plainlinks" data-id="MC-2536"><a href="https://bugs.mojang.com/browse/MC-2536" class="extiw" title="mojira:MC-2536">MC-2536</a></span>.</i>
+</p>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>white-list</b></span>
+</td>
+<td>boolean
+</td>
+<td>false
+</td>
+<td><span id="white-list"></span> Enables a whitelist on the server.
+<p>With a whitelist enabled, users not on the whitelist cannot connect. Intended for private servers, such as those for real-life friends or strangers carefully selected via an application process, for example.
+</p>
+<dl><dd><b>false</b> - No white list is used.</dd>
+<dd><b>true</b> - The file whitelist.json is used to generate the white list.</dd></dl>
+<p><i><b>Note:</b></i> <i>Ops are automatically whitelisted, and there is no need to add them to the whitelist.</i>
+</p>
+</td></tr>
+<tr>
+<td><span style="white-space:nowrap;"><b>enforce-whitelist</b></span>
+</td>
+<td>boolean
+</td>
+<td>false
+</td>
+<td><span id="enforce-whitelist"></span> Enforces the whitelist on the server.
+<p>When this option is enabled, users who are not present on the whitelist (if it's enabled) get kicked from the server after the server reloads the whitelist file.
+</p>
+<dl><dd><b>false</b> - No user gets kicked if not on the whitelist.</dd>
+<dd><b>true</b> - Online users not on the whitelist get kicked.</dd></dl>
+</td></tr></tbody></table>

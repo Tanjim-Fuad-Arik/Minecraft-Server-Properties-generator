@@ -1,0 +1,101 @@
+#server-properties-parent {
+    position: sticky;
+    top: 0px;
+    width: 50%;
+}
+#server-properties-parent div {
+    display:flex;
+    align-items:center;
+    height:100%;
+}
+#server-properties-parent thing {
+    margin-top: 50vh;
+    transform: translateY(-50%);
+}
+
+body {
+
+padding:20px;
+
+}
+
+.form-control {
+
+width:275px;
+
+}
+
+.vl {
+  border-left: 6px solid #242424;
+  height:100%;
+  position: fixed;
+  left: 45%;
+  margin-left: -3px;
+  top: 0;
+}
+
+.server-property-textbox {
+
+position:fixed;
+top:20px;
+left:1250px;
+
+}
+
+#downloadLink {
+
+ position:fixed;
+ bottom:35px;
+ right:200px;
+
+
+}
+
+#top {
+
+position:absolute;
+top:0px;
+left:0px;
+
+}
+
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 50%; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #202020; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding-left: 20px !important; /* Some padding */
+ padding-right: 20px !important; /* Some padding */
+ padding: 10px; /* Some padding */
+  border-radius:50%; /* Rounded corners */
+  font-size:20px; /* Increase font size */
+ text-decoration:none;
+transition:0.5s;
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+
+.navbar {
+
+position:fixed;
+width:100%;
+margin:0px;
+z-index:99;
+top:0px;
+left:0px;
+
+}
+
+#nb {
+
+padding:5px;
+
+}
