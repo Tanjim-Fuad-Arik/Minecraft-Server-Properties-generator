@@ -82,7 +82,7 @@ function updateProperties() {
 function updateCode() {
     let code = document.getElementById('server-properties');
     code.innerHTML = `#Minecraft server properties
-#Generated with https://matcool.github.io/server-properties
+#Generated with https://tanjim-fuad-arik.github.io/Minecraft-Server-Properties-generator/
 `;
     for (let key in properties) {
         if (properties.hasOwnProperty(key)) {
